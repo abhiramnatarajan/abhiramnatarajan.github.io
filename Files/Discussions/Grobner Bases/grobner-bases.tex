@@ -1,0 +1,92 @@
+\documentclass[10pt]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{amsmath, amsthm, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{csquotes}
+\usepackage{hyperref}
+\usepackage{comment}
+\usepackage{fontawesome}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[framemethod=tikz]{mdframed}
+
+\mathtoolsset{showonlyrefs}
+
+\input{shorthand-commands}
+
+\newmdtheoremenv{ideabox}{Idea}
+\newcommand{\gb}{Gr\"{o}bner }
+\newcommand*{\ideal}[1]{\langle#1\rangle}
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{center}\sc\Large
+\gb Bases
+\end{center}
+
+This is just meant to be a thought dump on \gb bases. My goal is for the following discussion to be such that it would lead one to the definition of a \gb basis. I'm not going to talk about monomial ordering. This discussion is for someone who has already done division in $k[x]$, and is familiar with the division algorithm in $k[x_1, \ldots, x_n]$. \\
+
+Let's start with a simple example to show that there is a problem with the extended division algorithm. Let's try to see if $f = xy^2 - x$ is divisible by $(f_1 = xy - 1, f_2 = y^2 - 1)$\footnote{The $(\cdot, \cdot, \ldots)$ notation is meant to denote ordered tuples.} If we followed the order $f_1, f_2$, then we'd find that
+\[
+xy^2 - x = y(xy-1) + (-x + y),
+\]
+giving us a remainder of $y-x$. However, if we tried to divide by $(f_2, f_1)$, we get
+\[
+xy^2 - x = x(y^2-1) + 0,
+\]
+giving us a remainder of 0. Now, this non-uniqueness of remainder is clearly something we'd like to remedy. Trying to suggest that $(f_2, f_1)$ is somehow a better order than $(f_1, f_2)$ is a non-starter because we can easily construct an example where choosing $(f_2, f_1)$ would give us a non-zero remainder, while choosing $(f_1, f_2)$ would give us a remainder of 0. \\
+
+\begin{ideabox}
+Suppose we are trying to divide by $\{f_i\}$. If we find $\{g_i\}$  such that, for each 
+\[
+g_i = \sum h_jf_j,
+\]
+and it turns out that having dividing by $g_i$ is easier, then we are in better shape. This is because if we use $g_i$ to divide, it is as good as dividing by $\{f_i\}$. \textbf{This immediately suggests that we employ the language of ideals.}
+\end{ideabox}
+
+In the language ideals, checking if $\{f_i\} | f$ is equivalent to checking if $f \in \ideal{\{f_i\}}$. However, even with the new language, we haven't made any progress. $\{f_i\}$ is the generating set of the new ideal, and we are no better off than before. What we need is a better generating set/basis. \\
+
+In the language of ideals, what was the problem with the example shown earlier? When we use the order $(f_1, f_2)$, we obtain $-x + y$ as a remainder. The problem is that we couldn't go any further by using the division algorithm. Say we somehow knew that
+\[
+-x + y = yf_1 - xf_2.
+\]
+Then we'd have no trouble deducing that our $f$ that we began with was indeed divisible by $\{f_1, f_2\}$. Our problem was that the $LT(x+y)$ was no divisible by either $LT(f_1)$ or $LT(f_2)$. 
+
+\begin{mdframed}
+\textcolor{Violet}{\textbf{Note:} $-x + y$ was formed with multiplying both $f_1$ and $f_2$ with monomial so as to form the LCM of the leading terms of $f_1$ and $f_2$, and then cancelling it out. We will see how the notion of an S-polynomial comes from this exact observation, and how this in turn leads us to Buchberger's algorithm.}
+\end{mdframed}
+
+\begin{ideabox}
+\label{idea:gb}
+This leads us to realize that we need a generating set $\{g_i\}_{i \in [s]}$ of our ideal $I = \ideal{f_1, f_2}$ that is such that for any $f \in I$, we have that there exists an $i^* \in [s]$ such that $LT(g_{i^*}) \mid LT(f)$.
+\end{ideabox}
+
+Idea \ref{idea:gb} is basically the definition of a \gb basis. A \gb basis is defined as exactly what is needed according to Idea \ref{idea:gb}. \\
+
+It is fairly reasonable to assume that one would get upto to this point, but how does one even hope that such a generating would exist? How can we even hope that it would be finite? Keep in mind that Buchberger's algorithm actually tells you \emph{how to find it.} The transition from wondering if such a generating set could even exist to actually being able to always find it is possible because of an equivalent definition of a \gb basis.
+
+\begin{definition}
+\label{def:gb-as-ideals}
+Define $LT(I) = \{LT(f) \mid f \in I\}$. The set $\{g_i\}_{i \in [s]} \subseteq I$ is a \gb basis if $I = \ideal{\{g_i\}_{i \in [s]}}$ and
+\[
+\ideal{LT(I)} = \ideal{\{LT(g_i) \mid i \in [s]\}}.
+\]
+\end{definition}
+
+That this definition is equivalent to what we expressed in Idea \ref{idea:gb} is an exercise left to the reader. I am more interested in discussing how one would have arrived at this language. Apriori, I feel it is extremely unnatural to define $\ideal{LT(I)}$ and $\ideal{\{LT(g_i) \mid i \in [s]\}}$. How then? \\
+
+Remember, we want for all $f \in I$, $LT(f) = LT(g_i) * m$ for some $i$ and $m$ a monomial. So naturally we would take a look at the set $LT(I)$. Let us form all possible $LT(g_i) * m$. It is just the set
+\[
+\{LT(g_i)LT(f) \mid i \in [s], f \in k[x_1, \ldots, x_n]\}.
+\]
+We want the above set to contain $LT(I)$, i.e. we want $\{LT(g_i)LT(f) \mid i \in [s], f \in k[x_1, \ldots, x_n]\} \supseteq LT(I)$. Since $g_i \in I$, we have that $g_iLT(f) \in I$ for all $f \in k[x_1, \ldots, x_n]$. This in turn means that $LT(g_i)LT(f)$ will be in $LT(I)$ thus proving that $\{LT(g_i)LT(f) \mid i \in [s], f \in k[x_1, \ldots, x_n]\} \subseteq LT(I)$. Thus we can say that the necessity expressed in Idea \ref{idea:gb} is equivalent to needing
+\[\{LT(g_i)LT(f) \mid i \in [s], f \in k[x_1, \ldots, x_n]\} = LT(I).\]
+
+Since $\{LT(g_i)LT(f) \mid i \in [s], f \in k[x_1, \ldots, x_n]\}$ and $LT(I)$ are the same as sets, we have that
+\[\ideal{\{LT(g_i)LT(f) \mid i \in [s], f \in k[x_1, \ldots, x_n]\}} = \ideal{LT(I)}.\] Finally, $\ideal{\{LT(g_i)LT(f) \mid i \in [s], f \in k[x_1, \ldots, x_n]\}}$ may as well be written as $\ideal{\{LT(g_i) \mid i \in [s]\}}$, thus giving us the condition in Definition \ref{def:gb-as-ideals}. \\
+
+N.B. Actually the above discussion only proves that $\ideal{LT(I)} = \ideal{\{LT(g_i) \mid i \in [s]\}}$ is a sufficient condition for what is expressed in Idea \ref{idea:gb}. It is also a necessary condition, but that needs a proof. Proving it is a necessary condition requires the observation that if we have a monomial $m \in I = \ideal{\{m_i\}}$, where $m_i$ are also monomials, then there exists an $i^*$ such that $m_{i^*} \mid m$.
+%\bibliographystyle{plainnat}
+%\bibliography{main} 
+\end{document}
