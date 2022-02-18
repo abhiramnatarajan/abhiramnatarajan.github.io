@@ -51,10 +51,10 @@ In the language of ideals, what was the problem with the example shown earlier? 
 \[
 -x + y = yf_1 - xf_2.
 \]
-Then we'd have no trouble deducing that our $f$ that we began with was indeed divisible by $\{f_1, f_2\}$. Our problem was that the $LT(x+y)$ was no divisible by either $LT(f_1)$ or $LT(f_2)$. 
+Then we'd have no trouble deducing that our $f$ that we began with was indeed divisible by $\{f_1, f_2\}$. Our problem was that $LT(x+y)$ was not divisible by either $LT(f_1)$ or $LT(f_2)$. 
 
 \begin{mdframed}
-\textcolor{Violet}{\textbf{Note:} $-x + y$ was formed with multiplying both $f_1$ and $f_2$ with monomial so as to form the LCM of the leading terms of $f_1$ and $f_2$, and then cancelling it out. We will see how the notion of an S-polynomial comes from this exact observation, and how this in turn leads us to Buchberger's algorithm.}
+\textcolor{Violet}{\textbf{Note:} $-x + y$ was formed with multiplying both $f_1$ and $f_2$ with monomial so as to form the LCM of the leading terms of $f_1$ and $f_2$, and then cancelling it out. In fact, the notion of an S-polynomial comes from this exact observation, and in turn leads us to Buchberger's algorithm.}
 \end{mdframed}
 
 \begin{ideabox}
@@ -62,7 +62,7 @@ Then we'd have no trouble deducing that our $f$ that we began with was indeed di
 This leads us to realize that we need a generating set $\{g_i\}_{i \in [s]}$ of our ideal $I = \ideal{f_1, f_2}$ that is such that for any $f \in I$, we have that there exists an $i^* \in [s]$ such that $LT(g_{i^*}) \mid LT(f)$.
 \end{ideabox}
 
-Idea \ref{idea:gb} is basically the definition of a \gb basis. A \gb basis is defined as exactly what is needed according to Idea \ref{idea:gb}. \\
+Idea \ref{idea:gb} is basically the definition of a \gb basis. A \gb basis is defined exactly as what is needed according to Idea \ref{idea:gb}. By ensuring that we have a $g_{i^*}$ whose leading term divides $LT(f)$ for all $f \in I$, we are certain to always be able to get a remainder of $0$ when $f \in I$. This is because anything that is leftover after subtracting a multiple of $g_i$ from f is in the same congruence class of $f$, modulo $I$. \\
 
 It is fairly reasonable to assume that one would get upto to this point, but how does one even hope that such a generating would exist? How can we even hope that it would be finite? Keep in mind that Buchberger's algorithm actually tells you \emph{how to find it.} The transition from wondering if such a generating set could even exist to actually being able to always find it is possible because of an equivalent definition of a \gb basis.
 
