@@ -72,21 +72,21 @@ This course is run as part of the
 	</tr>
 	<tr align="left">
 		<td>Week 2 (May 10)</td>
-		<td>basic linear algebra, tensors, tensor rank, very elementary group theory and representation theory. See <a href="https://jeremykun.com/2014/01/17/how-to-conquer-tensorphobia/">this</a> for an excellent light introduction to tensors, and <a href="https://www.math.uwaterloo.ca/~kpurbhoo/spring2012-math245/tensor.pdf">this</a> (at least up to Section 1.3) for a little more on tensors.</td>
+		<td>basic linear algebra, tensors, tensor rank, basic group theory and representation theory. See <a href="https://jeremykun.com/2014/01/17/how-to-conquer-tensorphobia/">this</a> for an excellent light introduction to tensors, and <a href="https://www.math.uwaterloo.ca/~kpurbhoo/spring2012-math245/tensor.pdf">this</a> (at least up to Section 1.3) for a little more on tensors.</td>
 		<td>finish overview of topics, complexity of matrix multiplication -- very brief intro. to tensors, "conceptual" understanding of Strassen's method (Grochow-Moore), border rank, ideas behind stronger lower bounds, upper bounds (Bini, Schonhage (full), Coppersmith-Winograd (just mention), Cohn-Umans group theoretic approach of embedding matrix multiplication into semi-simple algebras (full))</td>
 		<td><a href="notes/week%202.pdf">pdf</a></td>
 		<td>Couldn't do border rank onwards. Postponed to next lecture.</td>
 	</tr>
 	<tr align="left">
 		<td>Week 3 (May 17)</td>
-		<td>basic linear algebra, tensors, tensor rank, very elementary group theory and representation theory. See <a href="https://jeremykun.com/2014/01/17/how-to-conquer-tensorphobia/">this</a> for an excellent light introduction to tensors, and <a href="https://www.math.uwaterloo.ca/~kpurbhoo/spring2012-math245/tensor.pdf">this</a> (at least up to Section 1.3) for a little more on tensors.</td>
+		<td>basic linear algebra, tensors, tensor rank, basic group theory and representation theory. See <a href="https://jeremykun.com/2014/01/17/how-to-conquer-tensorphobia/">this</a> for an excellent light introduction to tensors, and <a href="https://www.math.uwaterloo.ca/~kpurbhoo/spring2012-math245/tensor.pdf">this</a> (at least up to Section 1.3) for a little more on tensors.</td>
 		<td>finish - border rank, ideas behind stronger lower bounds, upper bounds (Bini, Schonhage (full), Coppersmith-Winograd (just mention), Cohn-Umans group theoretic approach of embedding matrix multiplication into semi-simple algebras (full))</td>
 		<td><a href="notes/week%203.pdf">pdf</a></td>
 		<td>Couldn't do Cohn-Umans. Postponed to next lecture.</td>
 	</tr>
 	<tr align="left">
 		<td>Week 4 (May 24)</td>
-		<td>very elementary group theory and representation theory</td>
+		<td>basic group theory and representation theory</td>
 		<td>finish Cohn-Umans group theoretic approach of embedding matrix multiplication into semi-simple algebras (talk about association schemes as well), circuits, defns of VP and VNP, determinantal complexity</td>
 		<td><a href="notes/week%204.pdf">pdf</a></td>
 		<td>Defined VP, VNP. Proved perm is in VNP. Will do some more basics of algebraic complexity and bounds on determinantal complexity in the next lecture.</td>
@@ -97,6 +97,13 @@ This course is run as part of the
 		<td>basics of algebraic complexity theory, determinantal complexity (dc), Mignon-Ressayre's lower bound on dc of permanent (define Gauss maps in terms of conormal lines, degeneracy of Gauss images, obtain bound by dimension count), Grenet's upper bound on dc of permanent</td>
 		<td><a href="notes/week%205.pdf">pdf</a></td>
 		<td>Finished up to showing non-degeneracy of the dual variety of the permanent hypersurface. Will finish lower bound proof and upper bound proof in the next lecture.</td>
+	</tr>
+	<tr align="left">
+		<td>Week 6 (Jun 6)</td>
+		<td>exterior product (e.g. <a href="https://www.math.uwaterloo.ca/~kpurbhoo/spring2012-math245/tensor.pdf">this</a>), Koszul complexes (<a href="https://homepages.warwick.ac.uk/~masda/MA4J8/Lect18-22.pdf">this</a> and/or <a href="https://ncatlab.org/nlab/show/Koszul+complex">this</a> are reasonably easy to read references)</td>
+		<td>establish degeneracy of the Gauss image of the determinant hypersurface to prove Mignon-Ressayre's lower bound, explain Grenet's upper bound both combinatorially and in terms of the Koszul complex, equivariance of Grenet's representation and exponential separation b/w perm and det under the restriction of equivariance, other restricted models of computation, shallow circuits and the result of Gupta et al. studying Hilbert functions of Jacboian ideals (the method of shifted partial derivatives), fewnomials and the real-tau conjecture, an approach to the real-tau conjecture using the Wronskian determinant</td>
+		<td></td>
+		<td></td>
 	</tr>
 
 	
@@ -168,16 +175,17 @@ This course is run as part of the
 
 <b> Textbooks/Sources: </b> There will be no singular reference for this class. I plan on using a myriad of sources. Below is list that will be updated as we go along.
   <ul> 
-    <li> <a href="https://www.math.tamu.edu/~jml/simonsclass.pdf">Geometry and Complexity Theory</a> by Landsberg
+    <li> <a href="https://www.math.tamu.edu/~jml/simonsclass.pdf">Geometry and Complexity Theory</a> by Landsberg (<i>the main reference</i>)
 	<li> <a href="https://www.dcs.warwick.ac.uk/~u2270030/teaching_sb/summer17/introtogct/gct.pdf">Introduction to Geometric Complexity Theory</a> by Blaser and Ikenmeyer
 	<li> <a href="https://link.springer.com/book/10.1007/978-3-662-03338-8">Algebraic Complexity Theory</a> by Burgisser, Clausen, and Shokrollahi
 	<li> <a href="https://www.scottaaronson.com/papers/pnp.pdf">P ?= NP</a> by Aaronson; <a href="https://www.scottaaronson.com/papers/philos.pdf">Why Philosophers Should Care About Computational Complexity</a> by Aaronson; <a href="https://scottaaronson.blog/?p=152">Logicians on safari</a> by Aaronson
-	<li> <a href="https://arxiv.org/pdf/1205.1015.pdf">A Wronksian Approach to the Real Tau-Conjecture</a> by Koiran, Portier, and Tavenas
+	<li> <a href="https://www.amazon.de/-/en/G-Khovanskii/dp/0821845470">Fewnomials</a> by Khovanskii; <a href="https://arxiv.org/pdf/1205.1015.pdf">A Wronksian Approach to the Real Tau-Conjecture</a> by Koiran, Portier, and Tavenas
 	<li> <a href="https://www.sciencedirect.com/science/article/pii/S0926224517300827">Ulrich Complexity</a> by Blaser, Eisenbud, and Schreyer
 	<li> <a href="https://theoryofcomputing.org/articles/gs005/gs005.pdf">Fast Matrix Multiplication</a> by Blaser
 	<li> <a href="https://arxiv.org/pdf/1708.09398.pdf">Designing Strassen’s Algorithm</a> by Grochow and Moore
 	<li> <a href="https://arxiv.org/abs/math/0307321">A group-theoretic approach to fast matrix multiplication</a> by Cohn and Umans; <a href="https://arxiv.org/abs/1207.6528">Fast matrix multiplication using coherent configurations</a> by Cohn and Umans
 	<li> <a href="https://www.degruyter.com/document/doi/10.1515/9783110647686/html?lang=en">Ulrich Bundles: From Commutative Algebra to Algebraic Geometry</a> by Laura Costa, Rosa Maria Miro-Roig, Joan Pons-Llopis
+	<li> <a href="https://membres-ljk.imag.fr/Bruno.Grenet/publis/Gre11.pdf">An Upper Bound for the Permanent versus Determinant Problem</a> by Grenet
   </ul>
 <hr>
 <br>
