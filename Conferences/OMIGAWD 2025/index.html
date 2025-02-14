@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(OMIGAWD) O-Minimal Geometry: Interactions, Applications and Wider Developments, 2025</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; text-align: center; overflow-x: hidden; width: 100%; }
+        header { background: #2ecc71; color: white; padding: 20px; display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; position: relative; }
+        h1 { font-size: 2.5vw; margin: 0; padding: 0; max-width: 100%; white-space: normal; }
+        p.date { font-size: 1.5vw; margin-top: 5px; }
+        .banner-container {
+            width: 100%;
+            margin-top: 10px;
+        }
+        .banner {
+            width: 100%;
+            height: auto;
+            max-height: 200px; /* Scaled height */
+            object-fit: cover;
+        }
+        section { padding: 20px; max-width: 90%; margin: auto; }
+        .button { display: inline-block; padding: 10px 20px; background: #2ecc71; color: white; text-decoration: none; border-radius: 5px; }
+        .button:hover { background: #27ae60; }
+        footer { background: #2c3e50; color: white; padding: 10px; position: relative; bottom: 0; width: 100%; }
+        ul { list-style-type: none; padding: 0; }
+        li { margin-bottom: 10px; display: flex; flex-direction: column; align-items: center; }
+        .abstract { display: none; margin-top: 10px; font-style: italic; }
+        .talk-toggle { cursor: pointer; color: #2ecc71; text-decoration: underline; font-weight: bold; margin-top: 5px; }
+        .speaker-info { font-style: italic; color: #555; margin-bottom: 5px; text-align: center; }
+        .talk-details { display: none; margin-top: 5px; }
+        .talk-title { font-weight: bold; }
+    </style>
+    <script>
+        function toggleAbstract(id) {
+            var abstract = document.getElementById(id);
+            abstract.style.display = abstract.style.display === "block" ? "none" : "block";
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>(OMIGAWD) O-Minimal Geometry: Interactions, Applications and Wider Developments, 2025</h1>
+        <p class="date">July 21 - July 23, 2025</p>
+    </header>
+    <div class="banner-container">
+        <img src="https://www.dcs.warwick.ac.uk/~u2270030/wact/warwick.webp.png" alt="Conference Banner" class="banner">
+    </div>
+    
+    <section id="about">
+        <h2>About the Conference</h2>
+        <p>Join us for a deep dive into O-minimal geometry and its connections to various areas of pure mathematics.</p>
+    </section>
+    
+    <section id="speakers">
+        <h2>Invited Speakers</h2>
+        <ul>
+            <li>
+                <div class="speaker-info">Dr. Alice Mathematician (University A)</div>
+                <span class="talk-toggle" onclick="toggleAbstract('abstract1')">Talk Details</span>
+                <div id="abstract1" class="talk-details">
+                    <p class="talk-title">Title of Talk A</p>
+                    <p>Abstract for Talk A goes here.</p>
+                </div>
+            </li>
+            <li>
+                <div class="speaker-info">Dr. Bob Theorist (University B)</div>
+                <span class="talk-toggle" onclick="toggleAbstract('abstract2')">Talk Details</span>
+                <div id="abstract2" class="talk-details">
+                    <p class="talk-title">Title of Talk B</p>
+                    <p>Abstract for Talk B goes here.</p>
+                </div>
+            </li>
+            <li>
+                <div class="speaker-info">Dr. Carol Geometer (University C)</div>
+                <span class="talk-toggle" onclick="toggleAbstract('abstract3')">Talk Details</span>
+                <div id="abstract3" class="talk-details">
+                    <p class="talk-title">Title of Talk C</p>
+                    <p>Abstract for Talk C goes here.</p>
+                </div>
+            </li>
+        </ul>
+    </section>
+    
+    <section id="participants">
+        <h2>Participants</h2>
+        <p>A list of registered participants will be available soon.</p>
+    </section>
+    
+    <section id="schedule">
+        <h2>Schedule</h2>
+        <p>Full schedule coming soon!</p>
+    </section>
+    
+    <section id="location">
+        <h2>Location</h2>
+        <p>The conference will be held at University X, Conference Hall A, City, Country.</p>
+    </section>
+    
+    <section id="register">
+        <h2>Register Now</h2>
+        <a href="#" class="button">Sign Up</a>
+    </section>
+    
+    <section id="organisers">
+        <h2>Organisers</h2>
+        <p>The conference is organized by Professors X, Y, and Z from University X.</p>
+    </section>
+    
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>For inquiries, please contact us at <a href="mailto:contact@omigawd2025.org">contact@omigawd2025.org</a>.</p>
+    </section>
+    
+    <footer>
+    </footer>
+</body>
+</html>
