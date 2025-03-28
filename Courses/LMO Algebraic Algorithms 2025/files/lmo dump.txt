@@ -1,0 +1,52 @@
+Linear algebra?
+	Gaussial elimination
+	computing determinant efficiently
+	mention permanent is hard - although it is just a superficial difference
+
+grobner basis
+	definition, algorithm
+	primary applications - equality of ideals, membership and inclusion of ideals, etc.
+	Applications: Polynomial system solving, elimination (implicitization, saturation)
+	
+sturms theorem, Descarte's rule of signs
+
+Newton's root finding method
+
+cylindrical algebraic decomposition, and Quantifier elimination
+
+existential theory of reals complete - complexity theory
+
+multivariate polynomial evaluation
+
+polynomial identity testing - randomized algorithms
+
+
+LMO Abstract:
+
+Title: Algebraic Algorithms
+
+"Algebra" commonly refers to Elementary Algebra, which involves arithmetic with numerical values and variables, or Abstract Algebra, which is algebra in full generality applicable to nearly any mathematical domain. To say that algebra is fundamental to mathematics would be an understatement — it is nearly impossible to separate algebra from any mathematical activity. In this course, we will explore algorithmic methods for solving problems in both linear and nonlinear algebra. We will examine how algorithms for fundamental tasks, such as solving systems of linear equations/polynomials, connect to diverse areas like geometry, topology, computational complexity, combinatorics, and probability. Students can expect to have a fun ride as they witness how simple algebraic procedures give rise to deep and unexpected connections across seemingly unrelated fields of mathematics.
+
+
+System of Linear equations and Gaussian Elimination
+	Do examples.
+	Give geometric interpretation - i.e. you are replacing your original system with another system whose zero set is the same, but just easier to analyze.
+		This involves a jump for looking at linear equations and then going to basic co-ordinate geometry. Do this slowly.
+	
+Talk about Determinant
+	Give definition. Give geometric meaning. Talk about algorithm to compute it.
+	Then BLOW PEOPLE's MINDS ABOUT THE PERMANENT! $$$$$1 million dollars$$$$$
+	
+Grobner basis
+	Define ideal of polynomials - (this is the only technical definition)
+	Grobner basis is a generalization of Gaussian elimination - s polynomials, etc.
+		allows us to do ideal membership, elimination, syzygies, other examples such as sudoko
+	Talk about how it can do crazy stuff like de Rham cohomology
+		I UNDERSTAND THIS IS TOO ADVANCED, BUT THAT IS THE POINT, I WILL EXPLAIN IT IN SIMPLE TERMS
+		HOMOLOGY MEASURES HOLES - that is easy to understand wiht pictures. Will say how just with equations, grobner bases methods will tell you how many holes these zero sets have.
+		
+Randomized algorithms in algebra
+	Testing if two polynomial expressions are the same - randomized algorithm
+	Talk about polynomial identity testing
+	
+
