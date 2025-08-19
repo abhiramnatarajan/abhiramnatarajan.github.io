@@ -1,4 +1,4 @@
-			<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -35,6 +35,14 @@
             abstract.style.display = abstract.style.display === "block" ? "none" : "block";
         }
     </script>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
     <header>
@@ -152,8 +160,8 @@
                 <div class="speaker-info"><a href="https://anguepa.github.io/">Pablo Andújar Guerrero</a> (Universitat de València, Spain)</div>
                 <span class="talk-toggle" onclick="toggleAbstract('abstractandujar')">Talk Details</span>
                 <div id="abstractandujar" class="talk-details">
-                    <p class="talk-title">TBA</p>
-                    <p>TBA</p>
+                    <p class="talk-title">Beyond o-minimality: neostability and tame topology</p>
+                    <p>The NIP structures ($\mathbb{R}$, $+$, $\cdot$, $<$, $2^\mathbb{Z}$) and ($\mathbb{R}$, $+$, $<$, $\mathbb{Q}$) are not o-minimal, yet they have motivated generalizations of o-minimality such as d-minimality and having o-minimal open core. In this talk, we explore the interplay between neostability notions --- particularly NTP$_2$ and NIP --- and certain tame topological properties. Our main result is that NTP$_2$ expansions of ($\mathbb{R}$, $+$, $<$) and of $(\mathbb{Q}_p, +, \cdot)$ have constructible open core.</p>
                 </div>
             </li>
             <li>
@@ -177,7 +185,7 @@
                 <span class="talk-toggle" onclick="toggleAbstract('abstractcomte')">Talk Details</span>
                 <div id="abstractcomte" class="talk-details">
                     <p class="talk-title">Bézout's bounds for rational and lacunary complex algebraic plane curves</p>
-                    <p>I will explain which Bézout's bounds one can obtain in the complex case for rational plane curves and lacunary algebraic curves. More precisely, I will give lower and upper fewnomial bounds on the number of intersection points in a ball of the complex plane, between a rational curve $P(\CC)$ and a lacunary algebraic curve $Q=0$. These bounds depend only on the initial terms of $P$ and on the support of $Q$. This question is related to deep questions in algebraic complexity, such as the Valiant version of P vs NP. This is a joint work with Sébatien Tavenas.</p>
+                    <p>I will explain which Bézout's bounds one can obtain in the complex case for rational plane curves and lacunary algebraic curves. More precisely, I will give lower and upper fewnomial bounds on the number of intersection points in a ball of the complex plane, between a rational curve $P$ and a lacunary algebraic curve $Q=0$. These bounds depend only on the initial terms of $P$ and on the support of $Q$. This question is related to deep questions in algebraic complexity, such as the Valiant version of P vs NP. This is a joint work with Sébatien Tavenas.</p>
                 </div>
             </li>	
             <li>
@@ -201,7 +209,7 @@
                 <span class="talk-toggle" onclick="toggleAbstract('abstractrosenblum')">Talk Details</span>
                 <div id="abstractrosenblum" class="talk-details">
                     <p class="talk-title">Vandermonde Varieties and the Topology of Symmetric Semialgebraic Sets</p>
-                    <p>This talk concerns the role of Vandermonde varieties in the study of the topology of symmetric semialgebraic subsets of R^n (where R is some real closed field). In type A, Basu and Riener have leveraged symmetry relative to the action of the symmetric group S_n on R^n in the study of the cohomology of semialgebraic sets, proving length restrictions on which partitions appear in the isotypic decompositions of the cohomology spaces. We seek to extend these results to the remaining classical reflection groups (types B=C and D). Vandermonde varieties, which in type A are defined by the first several generators of the ring of S_n-invariant polynomials, play a key role in these arguments. We discuss analogous results in the remaining types. We also observe how equivariance in a construction for compact replacement (originally due to Gabrielov and Vorobjov) strengthens the restriction theorem and consequent algorithmic results. This is joint work with Dr. Saugata Basu (Purdue University).</p>
+                    <p>This talk concerns the role of Vandermonde varieties in the study of the topology of symmetric semialgebraic subsets of $R^n$ (where $R$ is some real closed field). In type A, Basu and Riener have leveraged symmetry relative to the action of the symmetric group $S_n$ on $R^n$ in the study of the cohomology of semialgebraic sets, proving length restrictions on which partitions appear in the isotypic decompositions of the cohomology spaces. We seek to extend these results to the remaining classical reflection groups (types B=C and D). Vandermonde varieties, which in type A are defined by the first several generators of the ring of $S_n$-invariant polynomials, play a key role in these arguments. We discuss analogous results in the remaining types. We also observe how equivariance in a construction for compact replacement (originally due to Gabrielov and Vorobjov) strengthens the restriction theorem and consequent algorithmic results. This is joint work with Dr. Saugata Basu (Purdue University).</p>
                 </div>
             </li>
             <li>
@@ -242,7 +250,17 @@
                 <span class="talk-toggle" onclick="toggleAbstract('abstractwirth')">Talk Details</span>
                 <div id="abstractwirth" class="talk-details">
                     <p class="talk-title">TBA</p>
-                    <p>TBA</p>
+                    <p>In recent years, the interaction between Model Theory and Statistical Learning Theory has increasingly received attention. Notably, Laskowski [1] established a fundamental connection between NIP and the Vapnik--Chervonenkis (VC) dimension, while the Fundamental Theorem of Statistical Learning links VC dimension to probably approximately correct (PAC) learning. When analyzing the PAC learnability of hypothesis spaces definable over tame ordered fields, measurability requirements must be taken into account.</p>
+					
+					<p>In this talk, we will explore the measurability of definable sets and functions in such contexts, with a view toward model-theoretic applications of the Fundamental Theorem of Statistical Learning. Since ordered fields are naturally endowed with the order topology, the associated Borel $\sigma$--algebras are obvious candidates for our measure-theoretic examination. A central focus will be on identifying sufficient conditions under which definable sets and relevant functions are Borel measurable. These considerations yield a learnability result for o-minimal expansions of the reals. Time permitting, we will further discuss measurability subtleties that emerge beyond the tame setting.</p>
+
+					<p>This is based on [2] and [3], which are submitted for publication and are part of my doctoral research project supervised by Professor Salma Kuhlmann and Dr. Lothar Sebastian Krapp at Universität Konstanz.</p>
+					
+					<ul>
+					<li> [1] M. C. Laskowski, ‘Vapnik–Chervonenkis Classes of Definable Sets’, J. Lond. Math. Soc., II. Ser. 45 (1992) 377–384, doi:10.1112/jlms/s2-45.2.377.
+					<li> [2] L. S. Krapp, M. Vermeil and L. Wirth, ‘On Tameness, Measurability and the Independence Property’, Preprint, 2025, arXiv:2506.08733.
+					<li> [3] L. S. Krapp and L. Wirth, ’Measurability in the Fundamental Theorem of Statistical Learning’, Preprint, 2025, arXiv:2410.10243.
+					</ul>
                 </div>
             </li>
         </ul>
@@ -296,7 +314,7 @@
 
     <section id="acknowledgement">
         <h2>Acknowledgements</h2>
-        <p>Abhiram Natarajan gratefully acknowledges financial support for this event from his EPSRC Grant EP/V003542/1. Banner image made using <a href="https://www.insmind.com/studio-ghibli-filter/">InsMind</a> with image taken from <a href="https://www.dcs.warwick.ac.uk/~u2270030/wact">here</a>.</p>
+        <p>Abhiram Natarajan gratefully acknowledges financial support for this event from his EPSRC Grant EP/V003542/1, and also from University of Warwick's <a href="https://warwick.ac.uk/fac/sci/maths/research/mrc/">Mathematics Research Centre (MRC)</a>. Banner image made using <a href="https://www.insmind.com/studio-ghibli-filter/">InsMind</a> with image taken from <a href="https://www.dcs.warwick.ac.uk/~u2270030/wact">here</a>.</p>
     </section>
         <footer>
     </footer>
