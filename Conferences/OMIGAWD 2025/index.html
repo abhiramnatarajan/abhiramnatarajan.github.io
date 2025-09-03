@@ -5,43 +5,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OMIGAWD: O-Minimal Geometry - Interactions, Applications and Wider Developments, 2025</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; text-align: center; overflow-x: hidden; width: 100%; }
-        header { background: #2ecc71; color: white; padding: 10px; display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; position: relative; }
-        h1 { font-size: 2.5vw; margin: 0; padding: 0; max-width: 100%; white-space: normal; }
-        p.date { font-size: 1.5vw; margin-top: 5px; }
-        .banner-container {
-            width: 100%;
-            margin-top: 10px;
-        }
-        .banner {
-            width: 80%;
-            max-height: 242.4px; /* Scaled height */
-        }
-        section { padding: 20px; max-width: 90%; margin: auto; }
-        .button { display: inline-block; padding: 10px 20px; background: #2ecc71; color: white; text-decoration: none; border-radius: 5px; }
-        .button:hover { background: #27ae60; }
-        footer { background: #2c3e50; color: white; padding: 10px; position: relative; bottom: 0; width: 100%; }
-        ul { list-style-type: none; padding: 0; }
-        li { margin-bottom: 10px; display: flex; flex-direction: column; align-items: center; }
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+			overflow-x: hidden;
+			width: 100%;
+		}
 
-		/* Schedule Table - pastel lavender + soft purple theme */
+		header {
+			background: #2ecc71;
+			color: white;
+			padding: 10px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			position: relative;
+		}
+
+		h1 {
+			font-size: 2.5vw;
+			margin: 0;
+			padding: 0;
+			max-width: 100%;
+			white-space: normal;
+		}
+
+		p.date {
+			font-size: 1.5vw;
+			margin-top: 5px;
+		}
+
+		.banner-container {
+			width: 100%;
+			margin-top: 10px;
+		}
+
+		.banner {
+			width: 80%;
+			max-height: 242.4px; /* Scaled height */
+		}
+
+		section {
+			padding: 20px;
+			max-width: 90%;
+			margin: auto;
+		}
+
+		.button {
+			display: inline-block;
+			padding: 10px 20px;
+			background: #2ecc71;
+			color: white;
+			text-decoration: none;
+			border-radius: 5px;
+		}
+		.button:hover {
+			background: #27ae60;
+		}
+
+		footer {
+			background: #2c3e50;
+			color: white;
+			padding: 10px;
+			position: relative;
+			bottom: 0;
+			width: 100%;
+		}
+
+		ul {
+			list-style-type: none;
+			padding: 0;
+		}
+		li {
+			margin-bottom: 10px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		/* Schedule Table - lighter mint chocolate chip theme */
+		.schedule-table {
+			width: 100%;
+			border-collapse: collapse;
+			margin-bottom: 30px;
+			font-size: 0.95em;
+		}
 		.schedule-table th, .schedule-table td {
-			border: 1px solid #d1c4e9; /* soft purple border */
+			border: 1px solid #c2b7aa; /* softer chocolate border */
 			padding: 8px 12px;
 			text-align: left;
 			vertical-align: top;
-			background: #f3e8ff; /* pastel lavender */
+			background: #e0f7ef; /* lighter pastel mint */
 		}
 		.schedule-table th {
-			background-color: #7e57c2; /* soft purple header */
+			background-color: #6b4c3b; /* chocolate brown header */
 			color: white;
 		}
 
 		/* Talk details toggle */
 		.talk-toggle {
 			cursor: pointer;
-			color: #4a148c; /* deep purple text */
-			background: #e1bee7; /* light lavender */
+			color: #6b4c3b; /* chocolate text */
+			background: #cceedd; /* lighter mint */
 			padding: 2px 6px;
 			border-radius: 4px;
 			text-decoration: underline;
@@ -50,12 +119,12 @@
 			margin-top: 5px;
 		}
 		.talk-toggle:hover {
-			background: #d1c4e9; /* slightly darker lavender hover */
+			background: #b8e4cc; /* slightly darker hover */
 		}
 
-		/* Details panel */
+		/* Details panel - slightly more saturated mint for contrast */
 		.details-panel {
-			background: #e1bee7; /* pastel lavender, stronger contrast */
+			background: #a3e6cc; /* darker pastel mint for contrast */
 			border-radius: 6px;
 			padding: 0 8px;
 			max-height: 0;
@@ -66,6 +135,14 @@
 		}
 		.details-panel.open {
 			padding: 8px;
+		}
+
+		/* Speaker styling */
+		.speaker-info {
+			font-style: italic;
+			color: #555;
+			margin-bottom: 5px;
+			text-align: center;
 		}
     </style>
     <script>
