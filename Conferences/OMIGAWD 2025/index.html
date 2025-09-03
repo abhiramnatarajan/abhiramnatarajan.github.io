@@ -23,16 +23,63 @@
         footer { background: #2c3e50; color: white; padding: 10px; position: relative; bottom: 0; width: 100%; }
         ul { list-style-type: none; padding: 0; }
         li { margin-bottom: 10px; display: flex; flex-direction: column; align-items: center; }
-        .abstract { display: none; margin-top: 10px; font-style: italic; }
-        .talk-toggle { cursor: pointer; color: #2ecc71; text-decoration: underline; font-weight: bold; margin-top: 5px; }
-        .speaker-info { font-style: italic; color: #555; margin-bottom: 5px; text-align: center; }
-        .talk-details { display: none; margin-top: 5px; }
-        .talk-title { font-weight: bold; }
+
+		/* Schedule Table - pastel lavender + soft purple theme */
+		.schedule-table th, .schedule-table td {
+			border: 1px solid #d1c4e9; /* soft purple border */
+			padding: 8px 12px;
+			text-align: left;
+			vertical-align: top;
+			background: #f3e8ff; /* pastel lavender */
+		}
+		.schedule-table th {
+			background-color: #7e57c2; /* soft purple header */
+			color: white;
+		}
+
+		/* Talk details toggle */
+		.talk-toggle {
+			cursor: pointer;
+			color: #4a148c; /* deep purple text */
+			background: #e1bee7; /* light lavender */
+			padding: 2px 6px;
+			border-radius: 4px;
+			text-decoration: underline;
+			font-size: 0.85em;
+			display: inline-block;
+			margin-top: 5px;
+		}
+		.talk-toggle:hover {
+			background: #d1c4e9; /* slightly darker lavender hover */
+		}
+
+		/* Details panel */
+		.details-panel {
+			background: #e1bee7; /* pastel lavender, stronger contrast */
+			border-radius: 6px;
+			padding: 0 8px;
+			max-height: 0;
+			overflow: hidden;
+			transition: max-height 0.5s ease, padding 0.3s ease;
+			font-size: 0.9em;
+			margin-top: 5px;
+		}
+		.details-panel.open {
+			padding: 8px;
+		}
     </style>
     <script>
-        function toggleAbstract(id) {
-            var abstract = document.getElementById(id);
-            abstract.style.display = abstract.style.display === "block" ? "none" : "block";
+        // For schedule table (smooth expand/collapse)
+        function togglePanel(id) {
+            var el = document.getElementById(id);
+            if (!el) return;
+            if (el.style.maxHeight && el.style.maxHeight !== '0px') {
+                el.style.maxHeight = '0px';
+                el.classList.remove('open');
+            } else {
+                el.style.maxHeight = el.scrollHeight + 'px';
+                el.classList.add('open');
+            }
         }
     </script>
     <script>
@@ -95,77 +142,26 @@
         <ul>
             <li>
                 <div class="speaker-info"><a href="https://www.mat.univie.ac.at/~maschenbrenner/index.html">Matthias Aschenbrenner</a> (Universität Wien, Austria)</div>
-                <span class="talk-toggle" onclick="toggleAbstract('abstractaschenbrenner')">Talk Details</span>
-                <div id="abstractaschenbrenner" class="talk-details">
-                    <p class="talk-title">TBA</p>
-                    <p>TBA</p>
-                </div>
             </li>
             <li>
                 <div class="speaker-info"><a href="https://www.math.purdue.edu/~sbasu/">Saugata Basu</a> (Purdue University, USA)</div>
-                <span class="talk-toggle" onclick="toggleAbstract('abstractbasu')">Talk Details</span>
-                <div id="abstractbasu" class="talk-details">
-                    <p class="talk-title">Cohomological VC Density: Bounds and Applications</p>
-                    <p>We introduce a topological generalization of VC-density. Let $Y$ be a topological space and $\mathcal{X}$ be families of subspaces of $Y$. We define a two parameter family of numbers, $\mathrm{vcd}^{p,q}_{\mathcal{X}}$. The classical notion of VC-density within this topological framework can be recovered by setting  $p=0, q=1$. For $p=0, q > 0$, we recover Shelah’s notion of higher-order VC-density for $q$-dependent families. Our definition introduces a new notion when $p>0$.</p>
-					
-					<p> We examine the properties of $\mathrm{vcd}^{p,q}_{\mathcal{X}}$ when the family $\mathcal{X}$ is definable in structures with some underlying topology (for instance, the analytic topology over $\mathbb{C}$, the etale site for schemes over arbitrary algebraically closed fields, or the Euclidean topology for o-minimal structures over $\mathbb{R}$). Our main result establishes that in any model of these theories, and for a proper definable correspondence $H \subset X \times Y$, $$\mathrm{vcd}^{p,q}_{\mathcal{X}} \leq (p+q) \dim X,$$ where $\mathcal{X}$ is the definable family of subsets of $Y$ induced by the correspondence $H$. This result generalizes known VC-density bounds in these structures extending them in multiple ways, as well as providing a uniform proof paradigm applicable to all of them. We give examples to show that our bounds are optimal.</p>
-					
-					<p>We present combinatorial applications of our higher-degree VC-density bounds, deriving topological analogs of well-known results such as the existence of $\varepsilon$-nets and the fractional Helly theorem. We show that with certain restrictions, these results extend to our higher-degree topological setting.</p>
-
-					<p>(Joint work with Deepam Patel.)</p>
-                </div>
             </li>
             <li>
                 <div class="speaker-info"><a href="https://chernikov.umd.edu/">Artem Chernikov</a> (University of Maryland, USA)</div>
-                <span class="talk-toggle" onclick="toggleAbstract('abstractchernikov')">Talk Details</span>
-                <div id="abstractchernikov" class="talk-details">
-                    <p class="talk-title">Alignments of definable groups and explicit bounds in general Elekes-Szabó</p>
-                    <p>An influential theorem of Elekes and Szabó indicates that the intersections of a given algebraic variety with large finite grids of points may have maximal size only for varieties that are closely connected to algebraic groups.  Techniques from model theory --- variants of Hrushovski's group configuration and of Zilber's trichotomy principle --- are very useful in recognizing these groups, and led to far reaching generalizations of Elekes-Szabó in the last decade. In this talk, focusing on the o-minimal case, we provide a generalization of the earlier result from Chernikov-Peterzil-Starchenko to arbitrary co-dimension, in particular obtaining explicit bounds in a theorem of Bays-Breuillard over the complex numbers.
-					</p>
-                </div>
             </li>
             <li>
                 <div class="speaker-info"><a href="https://personalpages.manchester.ac.uk/staff/Gareth.Jones-3/index.php">Gareth Jones</a> (University of Manchester, UK)</div>
-                <span class="talk-toggle" onclick="toggleAbstract('abstractjones')">Talk Details</span>
-                <div id="abstractjones" class="talk-details">
-                    <p class="talk-title">A non-model-complete pfaffian chain</p>
-                    <p>I will discuss some recent work with van Hille, Kirby and Speissegger in which give an example of a pfaffian chain such that the theory of the corresponding expansion of the real ordered field is not model complete.</p>
-                </div>
             </li>            <li>
                 <div class="speaker-info"><a href="https://www.math.uni-konstanz.de/~kuhlmann/exindex.html">Salma Kuhlmann</a> (Universität Konstanz, Germany, and University of Saskatchewan, Canada)</div>
-                <span class="talk-toggle" onclick="toggleAbstract('abstractkuhlmann')">Talk Details</span>
-                <div id="abstractkuhlmann" class="talk-details">
-                    <p class="talk-title">Classification of types in o-minimal expansions of ordered abelian groups and real closed fields</p>
-                    <p>We give a classification of 1-variable types in extensions of o-minimal expansions of ordered abelian groups and real closed fields. This is achieved by a valuation theoretic  analysis of types, leading to the trichotomy: (i) immediate transcendental (ii) value transcendental (iii) residue transcendental.
-					As application, we give necessary and sufficient conditions for a power bounded o-minimal expansion of a real closed field (in a language of arbitrary cardinality) to be $\kappa$-saturated. The conditions are in terms of the value group, residue field, and  $\kappa$- bounded pseudo-Cauchy sequences of the natural valuation on the real closed field. A further application is a characterization of recursively saturated models. This provides a construction method for saturated and recursively saturated models, using fields of generalized power series. This is based on joint work with P. D'Aquino and K. Lange.
-					</p>
-                </div>
             </li>
             <li>
                 <div class="speaker-info"><a href="https://www3.nd.edu/~apillay/">Anand Pillay</a> (University of Notre Dame, USA)</div>
-                <span class="talk-toggle" onclick="toggleAbstract('abstractpillay')">Talk Details</span>
-                <div id="abstractpillay" class="talk-details">
-                    <p class="talk-title">Real and p-adic Nash groups</p>
-                    <p>A real Nash function is a real-valued analytic function on an open semialgebraic subset of $\mathbb{R}^n$ whose graph is semialgebraic. The category of Nash manifolds has been widely studied. A Nash group is a Nash manifold with Nash group structure. Any group definable in the real field can be definably equipped with the structure of a Nash group. The category of Nash groups is (strictly) in between that of real algebraic groups and that of real Lie groups. The question is how to describe Nash groups in terms of real algebraic groups. Same definitions and questions with the p-adic field in place of the reals. I discuss conjectures and old and recent work on them. </p>
-                </div>
             </li>
             <li>
                 <div class="speaker-info"><a href="https://personalpages.manchester.ac.uk/staff/Marcus.Tressl/index.php">Marcus Tressl</a> (University of Manchester, UK)</div>
-                <span class="talk-toggle" onclick="toggleAbstract('abstracttressl')">Talk Details</span>
-                <div id="abstracttressl" class="talk-details">
-                    <p class="talk-title">The semi-algebraic homeomorphism type is elementary</p>
-                    <p>For a semi-algebraic subset X of the Euclidean space, let C(X) be the ring of continuous real valued functions on X that are semi-algebraic (i.e. they have a semi-algebraic graph). It is well known that another semi-algebraic set Y is semi-algebraically  homeomorphic to X if and only if the rings C(X) and C(Y) are isomorphic.</p>
-					
-					<p>I will show that X and Y are semi-algebraically  homeomorphic  already when C(X) and C(Y) satisfy the same first-order sentences in the language of rings.</p>
-                </div>
             </li>
             <li>
                 <div class="speaker-info"><a href="https://people.maths.ox.ac.uk/zilber/">Boris Zilber</a> (University of Oxford, UK)</div>
-                <span class="talk-toggle" onclick="toggleAbstract('abstractzilber')">Talk Details</span>
-                <div id="abstractzilber" class="talk-details">
-                    <p class="talk-title">TBA</p>
-                    <p>TBA</p>
-                </div>
             </li>
         </ul>
     </section>
@@ -175,102 +171,36 @@
         <ul>
             <li>
                 <div class="speaker-info"><a href="https://anguepa.github.io/">Pablo Andújar Guerrero</a> (Universitat de València, Spain)</div>
-                <span class="talk-toggle" onclick="toggleAbstract('abstractandujar')">Talk Details</span>
-                <div id="abstractandujar" class="talk-details">
-                    <p class="talk-title">Beyond o-minimality: neostability and tame topology</p>
-                    <p>The NIP structures ($\mathbb{R}$, $+$, $\cdot$, $<$, $2^\mathbb{Z}$) and ($\mathbb{R}$, $+$, $<$, $\mathbb{Q}$) are not o-minimal, yet they have motivated generalizations of o-minimality such as d-minimality and having o-minimal open core. In this talk, we explore the interplay between neostability notions --- particularly NTP$_2$ and NIP --- and certain tame topological properties. Our main result is that NTP$_2$ expansions of ($\mathbb{R}$, $+$, $<$) and of $(\mathbb{Q}_p, +, \cdot)$ have constructible open core.</p>
-                </div>
             </li>
             <li>
                 <div class="speaker-info"><a href="https://benjamin-bakker.github.io/">Benjamin Bakker</a> (University of Illinois at Chicago, USA)</div>
-                <span class="talk-toggle" onclick="toggleAbstract('abstractbakker')">Talk Details</span>
-                <div id="abstractbakker" class="talk-details">
-                    <p class="talk-title">TBA</p>
-                    <p>TBA</p>
-                </div>
             </li>
             <li>
                 <div class="speaker-info"><a href="https://georgescomte.perso.math.cnrs.fr/">Georges Comte</a> (Université Savoie Mont Blanc and Centre national de la recherche scientifique (CNRS), France)</div>
-                <span class="talk-toggle" onclick="toggleAbstract('abstractcomte')">Talk Details</span>
-                <div id="abstractcomte" class="talk-details">
-                    <p class="talk-title">Bézout's bounds for rational and lacunary complex algebraic plane curves</p>
-                    <p>I will explain which Bézout's bounds one can obtain in the complex case for rational plane curves and lacunary algebraic curves. More precisely, I will give lower and upper fewnomial bounds on the number of intersection points in a ball of the complex plane, between a rational curve $P$ and a lacunary algebraic curve $Q=0$. These bounds depend only on the initial terms of $P$ and on the support of $Q$. This question is related to deep questions in algebraic complexity, such as the Valiant version of P vs NP. This is a joint work with Sébatien Tavenas.</p>
-                </div>
             </li>	
             <li>
                 <div class="speaker-info"><a href="https://warwick.ac.uk/fac/sci/maths/people/staff/lotz/">Thomas Grimm</a> (Universiteit Utrecht, Netherlands and Harvard University, CMSA, USA)</div>
-                <span class="talk-toggle" onclick="toggleAbstract('abstractgrimm')">Talk Details</span>
-                <div id="abstractgrimm" class="talk-details">
-                    <p class="talk-title">TBA</p>
-                    <p>TBA</p>
-                </div>
             </li>			
             <li>
                 <div class="speaker-info"><a href="https://warwick.ac.uk/fac/sci/maths/people/staff/lotz/">Martin Lotz</a> (University of Warwick, UK)</div>
-                <span class="talk-toggle" onclick="toggleAbstract('abstractlotz')">Talk Details</span>
-                <div id="abstractlotz" class="talk-details">
-                    <p class="talk-title">Pfaffian Incidence Geometry and Applications</p>
-                    <p>Pfaffian functions, and by extension Pfaffian and semi-Pfaffian sets, play a crucial role in various areas of mathematics. Incidence combinatorics has recently experienced a surge of activity, fuelled by the introduction of the polynomial partitioning method of Guth and Katz. While traditionally restricted to simple geometric objects such as points and lines, focus has shifted towards incidence questions involving higher dimensional algebraic or semi-algebraic sets. We present a generalization of the polynomial partitioning method to semi-Pfaffian sets and illustrate how this leads to generalizations of classic results in incidence geometry, such as the Szemerédi-Trotter Theorem. Finally, we outline an application of semi-Pfaffian geometry to the robustness of neural networks.</p>
-                </div>
             </li>
             <li>
                 <div class="speaker-info"><a href="https://sites.google.com/view/alisonrosenblummath/home">Alison Rosenblum</a> (Wabash College, USA)</div>
-                <span class="talk-toggle" onclick="toggleAbstract('abstractrosenblum')">Talk Details</span>
-                <div id="abstractrosenblum" class="talk-details">
-                    <p class="talk-title">Vandermonde Varieties and the Topology of Symmetric Semialgebraic Sets</p>
-                    <p>This talk concerns the role of Vandermonde varieties in the study of the topology of symmetric semialgebraic subsets of $R^n$ (where $R$ is some real closed field). In type A, Basu and Riener have leveraged symmetry relative to the action of the symmetric group $S_n$ on $R^n$ in the study of the cohomology of semialgebraic sets, proving length restrictions on which partitions appear in the isotypic decompositions of the cohomology spaces. We seek to extend these results to the remaining classical reflection groups (types B=C and D). Vandermonde varieties, which in type A are defined by the first several generators of the ring of $S_n$-invariant polynomials, play a key role in these arguments. We discuss analogous results in the remaining types. We also observe how equivariance in a construction for compact replacement (originally due to Gabrielov and Vorobjov) strengthens the restriction theorem and consequent algorithmic results. This is joint work with Dr. Saugata Basu (Purdue University).</p>
-                </div>
             </li>
             <li>
                 <div class="speaker-info"><a href="https://sites.google.com/view/harry-schmidt/home">Harry Schmidt</a> (University of Warwick, UK)</div>
-                <span class="talk-toggle" onclick="toggleAbstract('abstractschmidt')">Talk Details</span>
-                <div id="abstractschmidt" class="talk-details">
-                    <p class="talk-title">Uniformity and effectivity for semi-constant families of multiplicative extensions</p>
-                    <p>In joint work with Gareth Jones, we are showing that a uniform version of relative Manin-Mumford and an effective version of the Zilber-Pink conjecture hold for semi-constant multiplicative extensions of elliptic curves. These relate to Poincaré bi-extensions and Ribet sections.</p>
-                </div>
             </li>
             <li>
                 <div class="speaker-info"><a href="https://www.docenti.unina.it/giuseppina.terzo">Giuseppina Terzo</a> (Universita' Degli Studi di Napoli, "Federico II", Italy)</div>
-                <span class="talk-toggle" onclick="toggleAbstract('abstractterzo')">Talk Details</span>
-                <div id="abstractterzo" class="talk-details">
-                    <p class="talk-title">Fields with(out) Generic Derivations</p>
-                    <p>We investigate the existence of generic derivations in expansions of fields. Specifically, we provide examples of field expansions that admit a generic derivation and study their model-theoretic properties. Furthermore, we show that exponential fields, in the absence of compatibility conditions between the derivation and the exponentiation, do not admit a generic derivation.
-					</p>
-                </div>
             </li>
             <li>
                 <div class="speaker-info"><a href="http://pioneer.chula.ac.th/~tathipa1/">Athipat Thamrongthanayalak</a> (Chulalongkorn University, Thailand)</div>
-                <span class="talk-toggle" onclick="toggleAbstract('abstractthamrongthanayalak')">Talk Details</span>
-                <div id="abstractthamrongthanayalak" class="talk-details">
-                    <p class="talk-title">TBA</p>
-                    <p>TBA</p>
-                </div>
             </li>
             <li>
                 <div class="speaker-info"><a href="https://www.math.purdue.edu/~thoma922/">Margaret Thomas</a> (Purdue University, USA)</div>
-                <span class="talk-toggle" onclick="toggleAbstract('abstractthomas')">Talk Details</span>
-                <div id="abstractthomas" class="talk-details">
-                    <p class="talk-title">TBA</p>
-                    <p>TBA</p>
-                </div>
             </li>
             <li>
                 <div class="speaker-info"><a href="https://www.math.uni-konstanz.de/~wirth/index_en.html">Laura Wirth</a> (Universität Konstanz, Germany)</div>
-                <span class="talk-toggle" onclick="toggleAbstract('abstractwirth')">Talk Details</span>
-                <div id="abstractwirth" class="talk-details">
-                    <p class="talk-title">Towards Model-Theoretic Learnability Results</p>
-                    <p>In recent years, the interaction between Model Theory and Statistical Learning Theory has increasingly received attention. Notably, Laskowski [1] established a fundamental connection between NIP and the Vapnik--Chervonenkis (VC) dimension, while the Fundamental Theorem of Statistical Learning links VC dimension to probably approximately correct (PAC) learning. When analyzing the PAC learnability of hypothesis spaces definable over tame ordered fields, measurability requirements must be taken into account.</p>
-					
-					<p>In this talk, we will explore the measurability of definable sets and functions in such contexts, with a view toward model-theoretic applications of the Fundamental Theorem of Statistical Learning. Since ordered fields are naturally endowed with the order topology, the associated Borel $\sigma$--algebras are obvious candidates for our measure-theoretic examination. A central focus will be on identifying sufficient conditions under which definable sets and relevant functions are Borel measurable. These considerations yield a learnability result for o-minimal expansions of the reals. Time permitting, we will further discuss measurability subtleties that emerge beyond the tame setting.</p>
-
-					<p>This is based on [2] and [3], which are submitted for publication and are part of my doctoral research project supervised by Professor Salma Kuhlmann and Dr. Lothar Sebastian Krapp at Universität Konstanz.</p>
-					
-					<ul>
-					<li> [1] M. C. Laskowski, ‘Vapnik–Chervonenkis Classes of Definable Sets’, J. Lond. Math. Soc., II. Ser. 45 (1992) 377–384, doi:10.1112/jlms/s2-45.2.377.
-					<li> [2] L. S. Krapp, M. Vermeil and L. Wirth, ‘On Tameness, Measurability and the Independence Property’, Preprint, 2025, arXiv:2506.08733.
-					<li> [3] L. S. Krapp and L. Wirth, ’Measurability in the Fundamental Theorem of Statistical Learning’, Preprint, 2025, arXiv:2410.10243.
-					</ul>
-                </div>
             </li>
         </ul>
     </section>
@@ -280,10 +210,389 @@
         <p>A list of registered participants will be available closer to the conference dates.</p>
     </section>
     
-    <section id="schedule">
-        <h2><a name="schedule">Schedule</a></h2>
-        <p>Full schedule will be available closer to the conference dates.</p>
-    </section>
+	<section id="schedule">
+		<h2><a name="schedule">Schedule</a></h2>
+
+		<h3>Day 1 – September 8, 2025</h3>
+		<table class="schedule-table">
+			<thead>
+				<tr>
+					<th style="width:20%">Time</th>
+					<th style="width:80%">Speaker</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>09:00 – 10:00</td>
+					<td>
+						<strong>Georges Comte</strong><br>
+						<span style="font-style:italic; font-size:0.9em;">Université Savoie Mont Blanc and CNRS, France</span>
+						<span class="talk-toggle" onclick="togglePanel('abscomte')">Talk Details</span>
+						<div id="abscomte" class="details-panel">
+							<p class="talk-title">Bézout's bounds for rational and lacunary complex algebraic plane curves</p>
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">I will explain which Bézout's bounds one can obtain in the complex case for rational plane curves and lacunary algebraic curves. More precisely, I will give lower and upper fewnomial bounds on the number of intersection points in a ball of the complex plane, between a rational curve $P$ and a lacunary algebraic curve $Q=0$. These bounds depend only on the initial terms of $P$ and on the support of $Q$. This question is related to deep questions in algebraic complexity, such as the Valiant version of P vs NP. This is a joint work with Sébatien Tavenas.</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="background:none">10:00 – 10:30</td>
+					<td style="background:none"><strong>Coffee Break</strong></td>
+				</tr>
+				<tr>
+					<td>10:30 – 11:30</td>
+					<td>
+						<strong>Laura Wirth</strong><br>
+						<span style="font-style:italic; font-size:0.9em;">Universität Konstanz, Germany</span>
+						<span class="talk-toggle" onclick="togglePanel('abswirth')">Talk Details</span>
+						<div id="abswirth" class="details-panel">
+							<p class="talk-title">Towards Model-Theoretic Learnability Results</p>
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">In recent years, the interaction between Model Theory and Statistical Learning Theory has increasingly received attention. Notably, Laskowski [1] established a fundamental connection between NIP and the Vapnik--Chervonenkis (VC) dimension, while the Fundamental Theorem of Statistical Learning links VC dimension to probably approximately correct (PAC) learning. When analyzing the PAC learnability of hypothesis spaces definable over tame ordered fields, measurability requirements must be taken into account.</p>
+					
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">In this talk, we will explore the measurability of definable sets and functions in such contexts, with a view toward model-theoretic applications of the Fundamental Theorem of Statistical Learning. Since ordered fields are naturally endowed with the order topology, the associated Borel $\sigma$--algebras are obvious candidates for our measure-theoretic examination. A central focus will be on identifying sufficient conditions under which definable sets and relevant functions are Borel measurable. These considerations yield a learnability result for o-minimal expansions of the reals. Time permitting, we will further discuss measurability subtleties that emerge beyond the tame setting.</p>
+
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">This is based on [2] and [3], which are submitted for publication and are part of my doctoral research project supervised by Professor Salma Kuhlmann and Dr. Lothar Sebastian Krapp at Universität Konstanz.</p>
+							
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">[1] M. C. Laskowski, ‘Vapnik–Chervonenkis Classes of Definable Sets’, J. Lond. Math. Soc., II. Ser. 45 (1992) 377–384, doi:10.1112/jlms/s2-45.2.377.</p>
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">[2] L. S. Krapp, M. Vermeil and L. Wirth, ‘On Tameness, Measurability and the Independence Property’, Preprint, 2025, arXiv:2506.08733.</p>
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">[3] L. S. Krapp and L. Wirth, ’Measurability in the Fundamental Theorem of Statistical Learning’, Preprint, 2025, arXiv:2410.10243.</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>11:30 – 12:00</td>
+					<td><strong></strong></td>
+				</tr>
+				<tr>
+					<td style="background:none">12:00 – 13:00</td>
+					<td style="background:none"><strong>Lunch</strong></td>
+				</tr>
+				<tr>
+					<td>13:00 – 14:00</td>
+					<td>
+						<strong>Martin Lotz</strong><br>
+						<span style="font-style:italic; font-size:0.9em;">University of Warwick, USA</span>
+						<span class="talk-toggle" onclick="togglePanel('abslotz')">Talk Details</span>
+						<div id="abslotz" class="details-panel">
+							<p class="talk-title">Pfaffian Incidence Geometry and Applications</p>
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">Pfaffian functions, and by extension Pfaffian and semi-Pfaffian sets, play a crucial role in various areas of mathematics. Incidence combinatorics has recently experienced a surge of activity, fuelled by the introduction of the polynomial partitioning method of Guth and Katz. While traditionally restricted to simple geometric objects such as points and lines, focus has shifted towards incidence questions involving higher dimensional algebraic or semi-algebraic sets. We present a generalization of the polynomial partitioning method to semi-Pfaffian sets and illustrate how this leads to generalizations of classic results in incidence geometry, such as the Szemerédi-Trotter Theorem. Finally, we outline an application of semi-Pfaffian geometry to the robustness of neural networks.</p>
+
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>14:00 – 15:00</td>
+					<td>
+						<strong>Anand Pillay</strong><br>
+						<span style="font-style:italic; font-size:0.9em;">University of Notre Dame, USA</span>
+						<span class="talk-toggle" onclick="togglePanel('abspillay')">Talk Details</span>
+						<div id="abspillay" class="details-panel">
+							<p class="talk-title">Real and p-adic Nash groups</p>
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">A real Nash function is a real-valued analytic function on an open semialgebraic subset of $\mathbb{R}^n$ whose graph is semialgebraic. The category of Nash manifolds has been widely studied. A Nash group is a Nash manifold with Nash group structure. Any group definable in the real field can be definably equipped with the structure of a Nash group. The category of Nash groups is (strictly) in between that of real algebraic groups and that of real Lie groups. The question is how to describe Nash groups in terms of real algebraic groups. Same definitions and questions with the p-adic field in place of the reals. I discuss conjectures and old and recent work on them.</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="background:none">15:00 – 15:30</td>
+					<td style="background:none"><strong>Coffee Break</strong></td>
+				<tr>
+					<td>15:30 – 16:30</td>
+					<td>
+						<strong>Salma Kuhlmann</strong><br>
+						<span style="font-style:italic; font-size:0.9em;">Universität Konstanz, Germany, and University of Saskatchewan, Canada</span>
+						<span class="talk-toggle" onclick="togglePanel('abskuhlmann')">Talk Details</span>
+						<div id="abskuhlmann" class="details-panel">
+							<p class="talk-title">Classification of types in o-minimal expansions of ordered abelian groups and real closed fields</p>
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">We give a classification of 1-variable types in extensions of o-minimal expansions of ordered abelian groups and real closed fields. This is achieved by a valuation theoretic  analysis of types, leading to the trichotomy: (i) immediate transcendental (ii) value transcendental (iii) residue transcendental.</p>
+							
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">As application, we give necessary and sufficient conditions for a power bounded o-minimal expansion of a real closed field (in a language of arbitrary cardinality) to be $\kappa$-saturated. The conditions are in terms of the value group, residue field, and  $\kappa$- bounded pseudo-Cauchy sequences of the natural valuation on the real closed field. A further application is a characterization of recursively saturated models. This provides a construction method for saturated and recursively saturated models, using fields of generalized power series. This is based on joint work with P. D'Aquino and K. Lange.</p>
+						</div>
+					</td>
+				</tr>
+				</tr>
+			</tbody>
+		</table>
+		
+		<h3>Day 2 – September 9, 2025</h3>
+		<table class="schedule-table">
+			<thead>
+				<tr>
+					<th style="width:20%">Time</th>
+					<th style="width:80%">Speaker</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>09:00 – 10:00</td>
+					<td>
+						<strong>Marcus Tressl</strong><br>
+						<span style="font-style:italic; font-size:0.9em;">University of Manchester, UK</span>
+						<span class="talk-toggle" onclick="togglePanel('abstressl')">Talk Details</span>
+						<div id="abstressl" class="details-panel">
+							<p class="talk-title">The semi-algebraic homeomorphism type is elementary</p>
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">For a semi-algebraic subset X of the Euclidean space, let C(X) be the ring of continuous real valued functions on X that are semi-algebraic (i.e. they have a semi-algebraic graph). It is well known that another semi-algebraic set Y is semi-algebraically  homeomorphic to X if and only if the rings C(X) and C(Y) are isomorphic.</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="background:none">10:00 – 10:30</td>
+					<td style="background:none"><strong>Coffee Break</strong></td>
+				</tr>
+				<tr>
+					<td>10:30 – 11:30</td>
+					<td>
+						<strong>Benjamin Bakker</strong><br>
+						<span style="font-style:italic; font-size:0.9em;">University of Illinois at Chicago, USA</span>
+						<span class="talk-toggle" onclick="togglePanel('absbakker')">Talk Details</span>
+						<div id="absbakker" class="details-panel">
+							<p class="talk-title">TBA</p>
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">TBA</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>11:30 – 12:00</td>
+					<td>
+						<strong>Melissa Nalbandiyan Özsahakyan</strong><br>
+						<span style="font-style:italic; font-size:0.9em;">Mimar Sinan Güzel Sanatlar Üniversitesi, Turkey, and Imperial College London, UK</span>
+						<span class="talk-toggle" onclick="togglePanel('absmelissa')">Talk Details</span>
+						<div id="absmelissa" class="details-panel">
+							<p class="talk-title">VC-Density in O-minimal Oriented Abelian Groups</p>
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">In this talk, we introduce oriented abelian groups and present a notion of O-minimality for these structures, in analogy with the classical concept of o-minimality for ordered abelian groups. We further establish that, in the theory of regularly dense divisible oriented abelian groups with full torsion, the VC-density of formulas is bounded by the size of the parameter variable.</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="background:none">12:00 – 13:00</td>
+					<td style="background:none"><strong>Lunch</strong></td>
+				</tr>
+				<tr>
+					<td>13:00 – 14:00</td>
+					<td>
+						<strong>Mathias Aschenbrenner</strong><br>
+						<span style="font-style:italic; font-size:0.9em;">Universität Wien, Austria</span>
+						<span class="talk-toggle" onclick="togglePanel('absaschenbrenner')">Talk Details</span>
+						<div id="absaschenbrenner" class="details-panel">
+							<p class="talk-title">Second-order linear differential equations over Hardy fields</p>
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">Hardy fields are one-dimensional relatives of o-minimal structures. We recently proved a theorem which permits the transfer of statements concerning algebraic differential equations between Hardy fields and related domains for tame asymptotic analysis. I will focus on one aspect of the special role played by second-order linear differential equations in this story, as well as applications of our main result to such equations. (Joint work with L. van den Dries and J. van der Hoeven.)</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>14:00 – 15:00</td>
+					<td>
+						<strong>Harry Schmidt</strong><br>
+						<span style="font-style:italic; font-size:0.9em;">University of Warwick, UK</span>
+						<span class="talk-toggle" onclick="togglePanel('absschmidt')">Talk Details</span>
+						<div id="absschmidt" class="details-panel">
+							<p class="talk-title">Uniformity and effectivity for semi-constant families of multiplicative extensions</p>
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">In joint work with Gareth Jones, we are showing that a uniform version of relative Manin-Mumford and an effective version of the Zilber-Pink conjecture hold for semi-constant multiplicative extensions of elliptic curves. These relate to Poincaré bi-extensions and Ribet sections.</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="background:none">15:00 – 15:30</td>
+					<td style="background:none"><strong>Break</strong></td>
+				<tr>
+					<td>15:30 – 16:30</td>
+					<td>
+					</td>
+				</tr>
+				</tr>
+			</tbody>
+		</table>
+		
+		<h3>Day 3 – September 10, 2025</h3>
+		<table class="schedule-table">
+			<thead>
+				<tr>
+					<th style="width:20%">Time</th>
+					<th style="width:80%">Speaker</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>09:00 – 10:00</td>
+					<td>
+						<strong>Gareth Jones</strong><br>
+						<span style="font-style:italic; font-size:0.9em;">University of Manchester, UK</span>
+						<span class="talk-toggle" onclick="togglePanel('absjones')">Talk Details</span>
+						<div id="absjones" class="details-panel">
+							<p class="talk-title">A non-model-complete pfaffian chain</p>
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">I will discuss some recent work with van Hille, Kirby and Speissegger in which give an example of a pfaffian chain such that the theory of the corresponding expansion of the real ordered field is not model complete.</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="background:none">10:00 – 10:30</td>
+					<td style="background:none"><strong>Coffee Break</strong></td>
+				</tr>
+				<tr>
+					<td>10:30 – 11:30</td>
+					<td>
+						<strong>Margaret Thomas</strong><br>
+						<span style="font-style:italic; font-size:0.9em;">Purdue University, USA</span>
+						<span class="talk-toggle" onclick="togglePanel('absthomas')">Talk Details</span>
+						<div id="absthomas" class="details-panel">
+							<p class="talk-title">TBA</p>
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">TBA</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>11:30 – 12:00</td>
+					<td>
+						<strong>Diksha Garg</strong><br>
+						<span style="font-style:italic; font-size:0.9em;">Indian Institutes of Science Education and Research Bhopal, India</span>
+						<span class="talk-toggle" onclick="togglePanel('absdiksha')">Talk Details</span>
+						<div id="absdiksha" class="details-panel">
+							<p class="talk-title">TBA</p>
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">TBA</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="background:none">12:00 – 13:00</td>
+					<td style="background:none"><strong>Lunch</strong></td>
+				</tr>
+				<tr>
+					<td>13:00 – 14:00</td>
+					<td>
+						<strong>Athipat Thamrongthanayalak</strong><br>
+						<span style="font-style:italic; font-size:0.9em;">Chulalongkorn University, Thailand</span>
+						<span class="talk-toggle" onclick="togglePanel('absthamrongthanayalak')">Talk Details</span>
+						<div id="absthamrongthanayalak" class="details-panel">
+							<p class="talk-title">Tame expansions of real closed fields and Banach fixed point property</p>
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">In this talk, we study a converse of the Banach fixed point theorem and its connection to tameness in expansions of a real closed field. Let $\mathfrak R$ be a definably complete expansion of a real closed field. We say that $\mathfrak R$ has the BFPP (short for, Banach fixed point property) when, for every locally closed definable set $E$, if every contraction on $E$ has a fixed point, then $E$ is closed.In this talk, we prove that if $\mathfrak R$ has an o-minimal open core, then $\mathfrak R$ has the BFPP; and if $\mathfrak R$ has the BFPP, then $\mathfrak R$ has a locally o-minimal open core.</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>14:00 – 15:00</td>
+					<td>
+						<strong>Artem Chernikov</strong><br>
+						<span style="font-style:italic; font-size:0.9em;">University of Maryland, USA</span>
+						<span class="talk-toggle" onclick="togglePanel('abschernikov')">Talk Details</span>
+						<div id="abschernikov" class="details-panel">
+							<p class="talk-title">Alignments of definable groups and explicit bounds in general Elekes-Szabó</p>
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">An influential theorem of Elekes and Szabó indicates that the intersections of a given algebraic variety with large finite grids of points may have maximal size only for varieties that are closely connected to algebraic groups.  Techniques from model theory --- variants of Hrushovski's group configuration and of Zilber's trichotomy principle --- are very useful in recognizing these groups, and led to far reaching generalizations of Elekes-Szabó in the last decade. In this talk, focusing on the o-minimal case, we provide a generalization of the earlier result from Chernikov-Peterzil-Starchenko to arbitrary co-dimension, in particular obtaining explicit bounds in a theorem of Bays-Breuillard over the complex numbers.</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="background:none">15:00 – 15:30</td>
+					<td style="background:none"><strong>Break</strong></td>
+				<tr>
+					<td>15:30 – 16:30</td>
+					<td>
+						<strong>Thomas Grimm</strong><br>
+						<span style="font-style:italic; font-size:0.9em;">Universiteit Utrecht, Netherlands and Harvard University, CMSA, USA</span>
+						<span class="talk-toggle" onclick="togglePanel('absgrimm')">Talk Details</span>
+						<div id="absgrimm" class="details-panel">
+							<p class="talk-title">Title</p>
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">Abstract</p>
+						</div>
+					</td>
+				</tr>
+				</tr>
+			</tbody>
+		</table>
+		
+		<h3>Day 4 – September 11, 2025</h3>
+		<table class="schedule-table">
+			<thead>
+				<tr>
+					<th style="width:20%">Time</th>
+					<th style="width:80%">Speaker</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>09:00 – 10:00</td>
+					<td>
+						<strong>Giuseppina Terzo</strong><br>
+						<span style="font-style:italic; font-size:0.9em;">Universita' Degli Studi di Napoli, "Federico II", Italy</span>
+						<span class="talk-toggle" onclick="togglePanel('absterzo')">Talk Details</span>
+						<div id="absterzo" class="details-panel">
+							<p class="talk-title">Fields with(out) Generic DerivationsFields with(out) Generic Derivations</p>
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">I will discuss some recent work with van Hille, Kirby and Speissegger in which give an example of a pfaffian chain such that the theory of the corresponding expansion of the real ordered field is not model complete.</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="background:none">10:00 – 10:30</td>
+					<td style="background:none"><strong>Coffee Break</strong></td>
+				</tr>
+				<tr>
+					<td>10:30 – 11:30</td>
+					<td>
+						<strong>Pablo Andújar Guerrero</strong><br>
+						<span style="font-style:italic; font-size:0.9em;">Universitat de València, Spain</span>
+						<span class="talk-toggle" onclick="togglePanel('absguerrero')">Talk Details</span>
+						<div id="absguerrero" class="details-panel">
+							<p class="talk-title">Beyond o-minimality: neostability and tame topology</p>
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">The NIP structures ($\mathbb{R}$, $+$, $\cdot$, $<$, $2^\mathbb{Z}$) and ($\mathbb{R}$, $+$, $<$, $\mathbb{Q}$) are not o-minimal, yet they have motivated generalizations of o-minimality such as d-minimality and having o-minimal open core. In this talk, we explore the interplay between neostability notions --- particularly NTP$_2$ and NIP --- and certain tame topological properties. Our main result is that NTP$_2$ expansions of ($\mathbb{R}$, $+$, $<$) and of $(\mathbb{Q}_p, +, \cdot)$ have constructible open core.</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>11:30 – 12:00</td>
+					<td><strong></strong></td>
+				</tr>
+				<tr>
+					<td style="background:none">12:00 – 13:00</td>
+					<td style="background:none"><strong>Lunch</strong></td>
+				</tr>
+				<tr>
+					<td>13:00 – 14:00</td>
+					<td>
+						<strong>Boris Zilber</strong><br>
+						<span style="font-style:italic; font-size:0.9em;">University of Oxford, UK</span>
+						<span class="talk-toggle" onclick="togglePanel('abszilber')">Talk Details</span>
+						<div id="abszilber" class="details-panel">
+							<p class="talk-title">Title</p>
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">Abstract</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>14:00 – 15:00</td>
+					<td>
+						<strong>Saugata Basu</strong><br>
+						<span style="font-style:italic; font-size:0.9em;">Purdue University, USA</span>
+						<span class="talk-toggle" onclick="togglePanel('absbasu')">Talk Details</span>
+						<div id="absbasu" class="details-panel">
+							<p class="talk-title">Cohomological VC Density: Bounds and Applications</p>
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">We introduce a topological generalization of VC-density. Let $Y$ be a topological space and $\mathcal{X}$ be families of subspaces of $Y$. We define a two parameter family of numbers, $\mathrm{vcd}^{p,q}_{\mathcal{X}}$. The classical notion of VC-density within this topological framework can be recovered by setting  $p=0, q=1$. For $p=0, q > 0$, we recover Shelah’s notion of higher-order VC-density for $q$-dependent families. Our definition introduces a new notion when $p>0$.</p>
+					
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">We examine the properties of $\mathrm{vcd}^{p,q}_{\mathcal{X}}$ when the family $\mathcal{X}$ is definable in structures with some underlying topology (for instance, the analytic topology over $\mathbb{C}$, the etale site for schemes over arbitrary algebraically closed fields, or the Euclidean topology for o-minimal structures over $\mathbb{R}$). Our main result establishes that in any model of these theories, and for a proper definable correspondence $H \subset X \times Y$, $$\mathrm{vcd}^{p,q}_{\mathcal{X}} \leq (p+q) \dim X,$$ where $\mathcal{X}$ is the definable family of subsets of $Y$ induced by the correspondence $H$. This result generalizes known VC-density bounds in these structures extending them in multiple ways, as well as providing a uniform proof paradigm applicable to all of them. We give examples to show that our bounds are optimal.</p>
+							
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">We present combinatorial applications of our higher-degree VC-density bounds, deriving topological analogs of well-known results such as the existence of $\varepsilon$-nets and the fractional Helly theorem. We show that with certain restrictions, these results extend to our higher-degree topological setting.</p>
+
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">(Joint work with Deepam Patel.)</p>
+
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="background:none">15:00 – 15:30</td>
+					<td style="background:none"><strong>Break</strong></td>
+				<tr>
+					<td>15:30 – 16:30</td>
+					<td>
+						<strong>Alison Rosenblum</strong><br>
+						<span style="font-style:italic; font-size:0.9em;">Wabash College, USA</span>
+						<span class="talk-toggle" onclick="togglePanel('absrosenblum')">Talk Details</span>
+						<div id="absrosenblum" class="details-panel">
+							<p class="talk-title">Vandermonde Varieties and the Topology of Symmetric Semialgebraic Sets</p>
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">This talk concerns the role of Vandermonde varieties in the study of the topology of symmetric semialgebraic subsets of $R^n$ (where $R$ is some real closed field). In type A, Basu and Riener have leveraged symmetry relative to the action of the symmetric group $S_n$ on $R^n$ in the study of the cohomology of semialgebraic sets, proving length restrictions on which partitions appear in the isotypic decompositions of the cohomology spaces. We seek to extend these results to the remaining classical reflection groups (types B=C and D). Vandermonde varieties, which in type A are defined by the first several generators of the ring of $S_n$-invariant polynomials, play a key role in these arguments. We discuss analogous results in the remaining types. We also observe how equivariance in a construction for compact replacement (originally due to Gabrielov and Vorobjov) strengthens the restriction theorem and consequent algorithmic results. This is joint work with Dr. Saugata Basu (Purdue University).</p>
+						</div>
+					</td>
+				</tr>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+
     
     <section id="location">
         <h2><a name="location">Location</a></h2>
