@@ -87,63 +87,15 @@
 			align-items: center;
 		}
 
-		/* Schedule Table - lighter mint chocolate chip theme */
-		.schedule-table {
-			width: 100%;
-			border-collapse: collapse;
-			margin-bottom: 30px;
-			font-size: 0.95em;
-		}
-		.schedule-table th, .schedule-table td {
-			border: 1px solid #c2b7aa; /* softer chocolate border */
-			padding: 8px 12px;
-			text-align: left;
-			vertical-align: top;
-			background: #e0f7ef; /* lighter pastel mint */
-		}
-		.schedule-table th {
-			background-color: #6b4c3b; /* chocolate brown header */
-			color: white;
-		}
+        .talk-toggle { cursor: pointer; font-size: 0.85em; font-weight: bold; margin-top: 5px; color: #66b3b3; text-decoration: underline; border-radius: 4px; padding: 2px 6px; transition: background 0.3s ease; }
+        .talk-toggle:hover { background: #b3e0e0; }
 
-		/* Talk details toggle */
-		.talk-toggle {
-			cursor: pointer;
-			color: #6b4c3b; /* chocolate text */
-			background: #cceedd; /* lighter mint */
-			padding: 2px 6px;
-			border-radius: 4px;
-			text-decoration: underline;
-			font-size: 0.85em;
-			display: inline-block;
-			margin-top: 5px;
-		}
-		.talk-toggle:hover {
-			background: #b8e4cc; /* slightly darker hover */
-		}
+        .schedule-table { width: 100%; border-collapse: collapse; margin-bottom: 30px; font-size: 0.95em; }
+        .schedule-table th, .schedule-table td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; vertical-align: top; background: #d9f2f2; }
+        .schedule-table th { background-color: #66b3b3; color: white; }
 
-		/* Details panel - slightly more saturated mint for contrast */
-		.details-panel {
-			background: #a3e6cc; /* darker pastel mint for contrast */
-			border-radius: 6px;
-			padding: 0 8px;
-			max-height: 0;
-			overflow: hidden;
-			transition: max-height 0.5s ease, padding 0.3s ease;
-			font-size: 0.9em;
-			margin-top: 5px;
-		}
-		.details-panel.open {
-			padding: 8px;
-		}
-
-		/* Speaker styling */
-		.speaker-info {
-			font-style: italic;
-			color: #555;
-			margin-bottom: 5px;
-			text-align: center;
-		}
+        .details-panel { max-height: 0; overflow: hidden; transition: max-height 0.5s ease, padding 0.3s ease; font-size: 0.9em; margin-top: 6px; background: #b3e0e0; border-radius: 6px; padding: 0 8px; }
+        .details-panel.open { padding: 8px; }
     </style>
     <script>
         // For schedule table (smooth expand/collapse)
@@ -174,7 +126,7 @@
         <p class="date">Sep 8 - Sep 11, 2025 at University of Warwick, UK</p>
     </header>
     <div class="banner-container">
-        <img src="2-2.png" alt="Conference Banner" class="banner">
+        <img src="3-2.png" alt="Conference Banner" class="banner">
     </div>
     
     <p align="center">
@@ -191,12 +143,11 @@
 
 	<section id="about">
 		<h2><a name="about">About the Conference</a></h2>
-		<p>
-			The space of real numbers, although arguably a familiar space for people thinking mathematically, plays host to scary and intuition-defying objects such as the Cantor set and the Weierstrass function. O-minimal geometry provides a framework for studying sets and functions with <i>tame topological and geometric properties</i>, generalizing semi-algebraic and subanalytic geometry, while retaining key finiteness conditions. Over the years, o-minimality has had interactions with a wide range of areas such as diophantine geometry, Hodge theory, theoretical computer science, combinatorics, dynamical systems, physics, and machine learning, where it has been essential to go beyond just algebraic sets while at the same time having control over complexity and structure.
-		</p>
-		<p>
-			This conference will explore recent advances in o-minimal geometry and its interactions with other areas. Talks will cover both foundational aspects and emerging directions, highlighting new perspectives and open problems. <strong>Please <a href="#register">register</a> below and join us!</strong>
-		</p>
+		<p>The space of real numbers, although arguably a familiar space for people thinking mathematically, plays host to scary and intuition-defying objects such as the Cantor set and the Weierstrass function. O-minimal geometry provides a framework for studying sets and functions with <i>tame topological and geometric properties</i>, generalizing semi-algebraic and subanalytic geometry, while retaining key finiteness conditions. Over the years, o-minimality has had interactions with a wide range of areas such as diophantine geometry, Hodge theory, theoretical computer science, combinatorics, dynamical systems, physics, and machine learning, where it has been essential to go beyond just algebraic sets while at the same time having control over complexity and structure.</p>
+		<p>This conference will explore recent advances in o-minimal geometry and its interactions with other areas. Talks will cover both foundational aspects and emerging directions, highlighting new perspectives and open problems. <strong>Please <a href="#register">register</a> below and join us!</strong></p>
+		
+		<p><i>With the view of being inclusive of researchers who are unable/unwilling to travel for whatever reason, we are excited to make remote participation available! Everyone registed will receive information on how to participate virtually.</i></p>
+
 
 		<div style="max-width: 80%; margin: 0px auto; border: 3px solid #DFFF00; border-radius: 15px; padding: 5px; background-color: #fdfdfd;">
 			<p style="color: red; font-weight: bold; margin: 0px">Important!</p>
@@ -206,9 +157,6 @@
 				</li>
 				<li style="margin-top: 10px;">
 					The conference will host an exciting range of plenary and invited talks. We also have a limited number of additional slots for contributed oral presentations, which will again be allocated on a first-come first-serve basis. If you are interested in contributing a talk, please write to us (email below), and include a title and/or abstract if possible.
-				</li>
-				<li style="margin-top: 10px;">
-					With the view of being inclusive of researchers who are unable/unwilling to travel for whatever reason, we are excited to make remote participation available!
 				</li>
 			</ul>
 		</div>
@@ -337,7 +285,15 @@
 				</tr>
 				<tr>
 					<td>11:30 – 12:00</td>
-					<td><strong></strong></td>
+					<td>
+						<strong>Yilong Zhang</strong><br>
+						<span style="font-style:italic; font-size:0.9em;">Rheinische Friedrich-Wilhelms-Universität Bonn, Germany</span>
+						<span class="talk-toggle" onclick="togglePanel('abszhang')">Talk Details</span>
+						<div id="abszhang" class="details-panel">
+							<p class="talk-title">Hrushovski construction in ordered fields</p>
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">The Hrushovski construction is a variant of amalgamation methods. It was invented to construct new examples of strongly minimal theories. The method was later adapted to expansions of fields, including colored fields and powered fields. In this talk, I will present my attempt to apply the Hrushovski construction to ordered fields. I will construct an expansion of RCF by a dense multiplicative subgroup (green points). The construction induces a back-and-forth system, enabling us to study the dp-rank and the open core of this structure. I will also introduce my recent progress on powered fields, an expansion of RCF by "power functions" on the unit circle, and my plan to axiomatize expansions of the real field using the Hrushovski construction.</p>
+						</div>
+					</td>
 				</tr>
 				<tr>
 					<td style="background:none">12:00 – 13:00</td>
@@ -406,7 +362,7 @@
 						<span class="talk-toggle" onclick="togglePanel('abstressl')">Talk Details</span>
 						<div id="abstressl" class="details-panel">
 							<p class="talk-title">The semi-algebraic homeomorphism type is elementary</p>
-							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">For a semi-algebraic subset X of the Euclidean space, let C(X) be the ring of continuous real valued functions on X that are semi-algebraic (i.e. they have a semi-algebraic graph). It is well known that another semi-algebraic set Y is semi-algebraically  homeomorphic to X if and only if the rings C(X) and C(Y) are isomorphic.</p>
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">For a semi-algebraic subset $X$ of the Euclidean space, let $C(X)$ be the ring of continuous real valued functions on $X$ that are semi-algebraic (i.e. they have a semi-algebraic graph). It is well known that another semi-algebraic set $Y$ is semi-algebraically  homeomorphic to $X$ if and only if the rings $C(X)$ and $C(Y)$ are isomorphic.</p>
 						</div>
 					</td>
 				</tr>
@@ -470,8 +426,19 @@
 					<td style="background:none">15:00 – 15:30</td>
 					<td style="background:none"><strong>Break</strong></td>
 				<tr>
-					<td>15:30 – 16:30</td>
+					<td>15:30 – 16:00</td>
 					<td>
+						<strong>Raymond McCulloch</strong><br>
+						<span style="font-style:italic; font-size:0.9em;">University of Manchester, UK</span>
+						<span class="talk-toggle" onclick="togglePanel('absmcculloch')">Talk Details</span>
+						<div id="absmcculloch" class="details-panel">
+							<p class="talk-title">Integer valued o-minimal functions</p>
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">(Joint work with Neer Bhardwaj, Nandagopal Ramachandran and Katharine Woo.)</p>
+							
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">In a classical theorem Polya showed that $2^z$ is the smallest non-polynomial entire function that takes integer values on all the positive integers. A 2016 result of Wilkie gives an analogous characterisation for integer valued functions definable in a certain expansion of the ordered real field.</p>
+
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">In this talk I shall discuss two generalisations of Wilkie's characterisation. The first of these gives a parallel to a theorem of Selberg and the second is an o-minimal analog of a theorem of Pila for k-concordant entire functions. If time permits I shall discuss a conjecture of Wilkie and highlight some other classical results in this area.</p>
+						</div>
 					</td>
 				</tr>
 				</tr>
