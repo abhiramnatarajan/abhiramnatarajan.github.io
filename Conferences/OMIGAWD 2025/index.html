@@ -96,7 +96,36 @@
 
         .details-panel { max-height: 0; overflow: hidden; transition: max-height 0.5s ease, padding 0.3s ease; font-size: 0.9em; margin-top: 6px; background: #b3e0e0; border-radius: 6px; padding: 0 8px; }
         .details-panel.open { padding: 8px; }
-    </style>
+
+		.announcement-box {
+		  background-color: #A3D8F4;  /* Soft sky blue */
+		  border-left: 6px solid #FF69B4; /* Darker pink accent */
+		  padding: 1em 1.2em;
+		  border-radius: 10px;
+		  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+		  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		  max-width: 800px;
+		  margin: 1em auto;
+		}
+
+		.announcement-box h3 {
+		  margin-top: 0;
+		  margin-bottom: 0.5em;
+		  color: #4F4F4F;  /* Darker blue header for contrast */
+		  font-size: 1.3em;
+		}
+
+		.announcement-box p {
+		  margin: 0.5em 0;
+		  line-height: 1.5em;
+		  color: #4F4F4F; /* Grey text */
+		}
+
+		.announcement-box a {
+		  color: #1A73E8; /* Bright blue link */
+		  text-decoration: underline;
+		}
+	</style>
     <script>
         // For schedule table (smooth expand/collapse)
         function togglePanel(id) {
@@ -112,11 +141,11 @@
         }
     </script>
     <script>
-      window.MathJax = {
-        tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']]
-        }
-      };
+		window.MathJax = {
+			tex: {
+				inlineMath: [['$', '$'], ['\\(', '\\)']]
+			}
+		};
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
@@ -126,14 +155,13 @@
         <p class="date">Sep 8 - Sep 11, 2025 at University of Warwick, UK</p>
     </header>
     <div class="banner-container">
-        <img src="3-2.png" alt="Conference Banner" class="banner">
+        <img src="banner-images/3-2.png" alt="Conference Banner" class="banner">
     </div>
     
     <p align="center">
 		<a href="#about">About</a> |
 		<a href="#plenary">Plenary Speakers</a> |
 		<a href="#invited">Invited Speakers</a> |
-		<!-- <a href="#participants">Participants</a> |-->
 		<a href="#schedule">Schedule</a> |
 		<a href="#location">Location</a> |
 		<a href="#travel">How to get here</a> |
@@ -147,16 +175,22 @@
 		<p>This conference will explore recent advances in o-minimal geometry and its interactions with other areas. Talks will cover both foundational aspects and emerging directions, highlighting new perspectives and open problems. <strong>Please <a href="#register">register</a> below and join us!</strong></p>
 		
 		<p><i>With the view of being inclusive of researchers who are unable/unwilling to travel for whatever reason, we are excited to make remote participation available! Everyone registed will receive information on how to participate virtually.</i></p>
-
+		
+		<div class="announcement-box">
+		  <h3>📢 ATTENTION!</h3>
+		  <p style="text-align:left">(5th Sep 2025) Registration is now closed. Virtual participation information will be sent soon.</p>
+		  <p style="text-align:left">(4th Sep 2025) The <a href="#schedule">schedule</a> is now near complete. Click <a href="program-schedule/OMIGAWD%202025%20-%20Schedule%20with%20abstracts.pdf">here</a> for a downloadable PDF version.</p>
+		  <p style="text-align:left">(3rd Aug 2025) The list of <a href="#plenary">plenary</a> and <a href="#invited">invited</a> speakers is near finalized.</p>
+		</div>
 
 		<div style="max-width: 80%; margin: 0px auto; border: 3px solid #DFFF00; border-radius: 15px; padding: 5px; background-color: #fdfdfd;">
 			<p style="color: red; font-weight: bold; margin: 0px">Important!</p>
 			<ul style="text-align: left;">
 				<li>
-					We expect to have some limited funds to assist attendees with their travel and/or lodging expenses. These will be allocated on a first-come first-serve basis. Please register at the earliest and indicate your requests clearly on the form to maximise your chances of receiving funding.
+					<s>We expect to have some limited funds to assist attendees with their travel and/or lodging expenses. These will be allocated on a first-come first-serve basis. Please register at the earliest and indicate your requests clearly on the form to maximise your chances of receiving funding.</s>
 				</li>
-				<li style="margin-top: 10px;">
-					The conference will host an exciting range of plenary and invited talks. We also have a limited number of additional slots for contributed oral presentations, which will again be allocated on a first-come first-serve basis. If you are interested in contributing a talk, please write to us (email below), and include a title and/or abstract if possible.
+				<li style="text-align: left;margin-top: 10px;">
+					<s>The conference will host an exciting range of plenary and invited talks. We also have a limited number of additional slots for contributed oral presentations, which will again be allocated on a first-come first-serve basis. If you are interested in contributing a talk, please write to us (email below), and include a title and/or abstract if possible.</s>
 				</li>
 			</ul>
 		</div>
