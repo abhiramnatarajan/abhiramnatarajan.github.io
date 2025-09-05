@@ -99,7 +99,6 @@
 
 		.announcement-box {
 		  background-color: #A3D8F4;  /* Soft sky blue */
-		  border-left: 6px solid #FF69B4; /* Darker pink accent */
 		  padding: 1em 1.2em;
 		  border-radius: 10px;
 		  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
@@ -125,6 +124,16 @@
 		  color: #1A73E8; /* Bright blue link */
 		  text-decoration: underline;
 		}
+		
+		/* Wiggle */
+		@keyframes wiggle {
+		  0% { transform: rotate(-1deg); }
+		  50% { transform: rotate(1deg); }
+		  100% { transform: rotate(-1deg); }
+		}
+		.wiggle {
+		  animation: wiggle 0.4s infinite alternate ease-in-out;
+		}		
 	</style>
     <script>
         // For schedule table (smooth expand/collapse)
@@ -176,8 +185,18 @@
 		
 		<p><i>With the view of being inclusive of researchers who are unable/unwilling to travel for whatever reason, we are excited to make remote participation available! Everyone registed will receive information on how to participate virtually.</i></p>
 		
+		<a href="https://math.stanford.edu/~vakil/conferences.html" style="
+			 display:inline-flex;align-items:center;gap:.5rem;
+			 padding:.5rem .8rem;border-radius:999px;
+			 background:#ffd6f0;border:1px solid #ffb3d9;
+			 color:#5b2c6f;text-decoration:none;font:600 0.85rem/1 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+			 box-shadow:0 2px 6px rgba(0,0,0,.1);
+			 animation: wiggle 1.2s infinite alternate;
+		"><span>...bestowed the completely legitimate "Best acronym for a conference, 2025" award...</span>
+		<span style="margin-left:.25rem;font-size:0.95rem">(click to see)↗</span></a>
+		
 		<div class="announcement-box">
-		  <h3>📢 ATTENTION!</h3>
+		  <h3>📯 ATTENTION!</h3>
 		  <p style="text-align:left">(5th Sep 2025) Registration is now closed. Virtual participation information will be sent soon.</p>
 		  <p style="text-align:left">(4th Sep 2025) The <a href="#schedule">schedule</a> is now near complete. Click <a href="program-schedule/OMIGAWD%202025%20-%20Schedule%20with%20abstracts.pdf">here</a> for a downloadable PDF version.</p>
 		  <p style="text-align:left">(3rd Aug 2025) The list of <a href="#plenary">plenary</a> and <a href="#invited">invited</a> speakers is near finalized.</p>
@@ -365,6 +384,7 @@
 				<tr>
 					<td style="background:none">15:00 – 15:30</td>
 					<td style="background:none"><strong>Coffee Break</strong></td>
+				</tr>
 				<tr>
 					<td>15:30 – 16:30</td>
 					<td>
@@ -378,7 +398,6 @@
 							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">As application, we give necessary and sufficient conditions for a power bounded o-minimal expansion of a real closed field (in a language of arbitrary cardinality) to be $\kappa$-saturated. The conditions are in terms of the value group, residue field, and  $\kappa$- bounded pseudo-Cauchy sequences of the natural valuation on the real closed field. A further application is a characterization of recursively saturated models. This provides a construction method for saturated and recursively saturated models, using fields of generalized power series. This is based on joint work with P. D'Aquino and K. Lange.</p>
 						</div>
 					</td>
-				</tr>
 				</tr>
 			</tbody>
 		</table>
@@ -415,8 +434,8 @@
 						<span style="font-style:italic; font-size:0.9em;">University of Illinois at Chicago, USA</span>
 						<span class="talk-toggle" onclick="togglePanel('absbakker')">Talk Details</span>
 						<div id="absbakker" class="details-panel">
-							<p class="talk-title">TBA</p>
-							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">TBA</p>
+							<p class="talk-title">Fields of period functions</p>
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">It is a classical fact that the j-function satisfies an algebraic differential equation of order 3.  In 2003, Bertrand and Zudilin generalized this to Siegel modular varieties, describing the order of the differential equations Siegel modular forms satisfy and computing the transcendence degree of the differential field they generate.  In this talk I will explain how this can be generalized to a statement about the period integrals of algebraic forms for any family of algebraic varieties.  This is joint work with J. Pila and J. Tsimerman.</p>
 						</div>
 					</td>
 				</tr>
@@ -575,6 +594,7 @@
 				<tr>
 					<td style="background:none">15:00 – 15:30</td>
 					<td style="background:none"><strong>Break</strong></td>
+				</tr>
 				<tr>
 					<td>15:30 – 16:30</td>
 					<td>
@@ -587,6 +607,17 @@
 						</div>
 					</td>
 				</tr>
+				<tr>
+					<td>16:30 – 17:00</td>
+					<td>
+						<strong>William Stephenson</strong><br>
+						<span style="font-style:italic; font-size:0.9em;">University of Manchester, UK</span>
+						<span class="talk-toggle" onclick="togglePanel('absstephenson')">Talk Details</span>
+						<div id="absstephenson" class="details-panel">
+							<p class="talk-title">Zilber-Pink for varieties intersecting an analytic subgroup inside a product of abelian varieties</p>
+							<p style="margin-top:5px; font-size:0.9em; line-height:1.4em;">In this talk, I will present some work on generalising a result of Jonathan Pila, where he proves Zilber-Pink for varieties intersecting a predicate for raising to the power of i. I prove the analogous statement for varieties inside a product of abelian varieties and generalise the result to all algebraic powers. Time permitting, I will talk about sharply- o-minimal structures and how these can be used to obtain sharp bounds on the number of optimal points on varieties intersecting analytic subgroups.</p>
+						</div>
+					</td>
 				</tr>
 			</tbody>
 		</table>
@@ -698,7 +729,8 @@
     
     <section id="location">
         <h2><a name="location">Location</a></h2>
-        <p>The conference will be held in room B3.03 of the Zeeman building (Coventry CV4 7EZ) of the University of Warwick, UK</p>
+        <p>The conference will be held in room B3.03 of the Zeeman building (Coventry CV4 7EZ) of the University of Warwick, UK.</p>
+		<p>For people using Uber to get to the campus, enter "Zeeman building Coventry CV4 7EZ". If you are using a black cab, just say "University of Warwick, Zeeman building, Coventry CV4 7EZ" to the driver. In general, if you are using any maps app on your phone to get you to the conference location, just type in "University of Warwick, Zeeman building, Coventry CV4 7EZ" - that should do it.</p>
     </section>
     
     <section id="location">
